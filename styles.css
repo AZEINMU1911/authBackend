@@ -1,0 +1,20 @@
+button {
+    border:none;
+    color: black;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 2px;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+}
