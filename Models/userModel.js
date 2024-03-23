@@ -1,3 +1,5 @@
+//creating table for database
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
       userName: {

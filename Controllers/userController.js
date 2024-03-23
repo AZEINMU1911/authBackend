@@ -7,12 +7,14 @@ const User = db.user
 //user sign up
 const signup = async (req,res) => {
     try {
+        //required inout field during sign up
         const { userName, email, password} = req.body;
         const data = {
             userName,
             email,
-            password: await bcrypt.hash(password,10),
+            password: await bcrypt.hash(password,10),   //hashes password
         };
+        //pushes data entered to database
         const user = await User.create(data);
 
         if (user){
@@ -28,6 +30,7 @@ const signup = async (req,res) => {
         console.log(token);
 
         return res.status(201).send(user)
+
         //If something wrong during sign up
         } else {
             return res.status(409).send("Please enter the correect details")
@@ -41,6 +44,7 @@ const signup = async (req,res) => {
 //user login 
 const login = async (req,res) => {
     try {
+        //logging in by email and password
         const { email, password } = req.body;
     
         // Find a user by their email in the database
@@ -79,12 +83,12 @@ const login = async (req,res) => {
           return res.status(401).send("Authentication failed");
         }
       } catch (error) {
-        // Handle any errors
+        // error handling
         console.log(error);
         return res.status(500).send("Internal server error");
       }
     };
-
+    //exports signup and login function
     module.exports = {
         signup,login
     }
